@@ -1,0 +1,29 @@
+const express = require('express');
+const app = express();
+const port = 3000; // You can change this to your desired port
+
+// Endpoint 1: GET /api/endpoint1
+app.get('/api/endpoint1', (req, res) => {
+  res.json({ message: 'This is API endpoint 1' });
+});
+
+// Endpoint 2: POST /api/endpoint2
+app.post('/api/endpoint2', (req, res) => {
+  res.json({ message: 'This is API endpoint 2' });
+});
+
+// Endpoint 3: PUT /api/endpoint3/:id
+app.put('/api/endpoint3/:id', (req, res) => {
+  const id = req.params.id;
+  res.json({ message: `This is API endpoint 3 with ID ${id}` });
+});
+
+// Endpoint 4: DELETE /api/endpoint4/:id
+app.delete('/api/endpoint4/:id', (req, res) => {
+  const id = req.params.id;
+  res.json({ message: `Deleted data with ID ${id}` });
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
